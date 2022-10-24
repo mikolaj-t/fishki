@@ -9,8 +9,8 @@ services:
   fishki-server:
     build: ./server
     env_file:
-      -.env
-      - secrets.env
+      - .env
+      - server/secrets.env
     depends_on:
       - mongo
     networks:
