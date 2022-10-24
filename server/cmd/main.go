@@ -6,6 +6,7 @@ import (
 	"fishki/internal/db"
 	"fishki/internal/rest"
 	"fishki/pkg/core"
+	"fmt"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -27,6 +28,12 @@ func main() {
 	}
 
 	config.AllowOrigins = origins
+
+	if gin.Mode() == gin.DebugMode {
+		for _, origin := range config.AllowOrigins {
+			fmt.Println("Origin allowed:", origin)
+		}
+	}
 	config.AllowCredentials = true
 
 	router.Use(cors.New(config))
