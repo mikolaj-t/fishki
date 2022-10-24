@@ -1,0 +1,1 @@
+<img src="https://stkittsvet.co.uk/wp-content/uploads/2019/06/images-guinea-pig.jpg">

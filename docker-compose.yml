@@ -1,0 +1,25 @@
+services:
+  fishki-client:
+    build: ./client
+    env_file: client/.env
+    networks:
+      - default
+    ports:
+      - "5174:5174"
+  fishki-server:
+    build: ./server
+    env_file:
+      -.env
+      - secrets.env
+    depends_on:
+      - mongo
+    networks:
+      - default
+    ports:
+      - "8080:8080"
+  mongo:
+    image: mvertes/alpine-mongo:4.0.5-0
+    env_file:
+      - .env
+    ports:
+      - "27017:27017"
