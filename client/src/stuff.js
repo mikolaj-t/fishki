@@ -1,6 +1,7 @@
 import {currentCardID, currentReviewID} from "./stores.js";
+import { PUBLIC_API_URL } from '$env/static/public';
 
-export const apiURL = process.env.API_URL
+export const apiURL = PUBLIC_API_URL;
 
 let reviewID;
 let cardID;
