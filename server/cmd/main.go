@@ -19,9 +19,14 @@ func main() {
 	router := gin.Default()
 
 	config := cors.DefaultConfig()
-	config.AllowOrigins =
-		[]string{"http://fishki-client:5174", "http://127.0.0.1:5174",
-			"http://127.0.0.1:5173", "http://localhost:5173/"}
+	var origins = []string{"http://fishki-client:5174", "http://127.0.0.1:5174",
+		"http://127.0.0.1:5173", "http://localhost:5173/"}
+
+	if corsEnv, found := os.LookupEnv("CORS_ORIGIN"); found {
+		origins = append(origins, corsEnv)
+	}
+
+	config.AllowOrigins = origins
 	config.AllowCredentials = true
 
 	router.Use(cors.New(config))
