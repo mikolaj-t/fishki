@@ -21,8 +21,6 @@
         <NavLi href="/me">Me</NavLi>
         <NavLi href="/user/login">Login</NavLi>
         <NavLi href="/user/register">Register</NavLi>
-        <NavLi href="/finek">finek</NavLi>
-
     </NavUl>
 </Navbar>
 

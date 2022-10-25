@@ -1,7 +1,7 @@
 <script>
 import Form from "../../../../../components/Form.svelte";
 import {page} from "$app/stores";
-import {Button, Input, Label} from "flowbite-svelte";
+import {Button, Input, Label, Textarea} from "flowbite-svelte";
 import {apiURL} from "../../../../../stuff.js";
 
 export let num = 1;
@@ -43,11 +43,11 @@ function onSubmit(e) {
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
             <Label for="prompt">🐟 Prompt</Label>
-            <Input id="prompt" name="prompt" placeholder="Coolest animal on earth" required/>
+            <Textarea id="prompt" name="prompt" placeholder="Coolest animal on earth" required/>
             </div>
             <div>
             <Label for="answer">🗝️ Answer</Label>
-            <Input id="answer" name="answer" placeholder="turtle" n required/>
+            <Textarea id="answer" name="answer" placeholder="turtle" n required/>
             </div>
         </div>
     {/each}
