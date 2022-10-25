@@ -55,7 +55,7 @@ func (c cardHandler) Create(ctx *gin.Context) {
 func (c cardHandler) Update(ctx *gin.Context) {
 	card := core.Card{}
 
-	err := ctx.BindJSON(card)
+	err := ctx.BindJSON(&card)
 	if err != nil {
 		ctx.Status(http.StatusBadRequest)
 		return
