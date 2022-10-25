@@ -39,7 +39,7 @@ func main() {
 	router.Use(cors.New(config))
 
 	_ = router.SetTrustedProxies(nil)
-	credentials := options.Credential{Username: os.Getenv("MONGO_USERNAME"), Password: os.Getenv("MONGO_PASSWORD")}
+	credentials := options.Credential{Username: os.Getenv("MONGO_INITDB_ROOT_USERNAME"), Password: os.Getenv("MONGO_INITDB_ROOT_PASSWORD")}
 	mongoClient, err := mongo.Connect(context.Background(),
 		options.Client().ApplyURI("mongodb://mongo:27017").SetAuth(credentials))
 	if err != nil {

@@ -18,8 +18,9 @@ services:
     ports:
       - "8080:8080"
   mongo:
-    image: mvertes/alpine-mongo:4.0.5-0
+    image: mongo:6.0.2
     env_file:
       - .env
+      - server/secrets.env
     ports:
       - "27017:27017"
