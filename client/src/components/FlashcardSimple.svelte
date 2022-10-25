@@ -21,4 +21,4 @@
     })
 </script>
 
-{flashcard.prompt} - {flashcard.answer} <br/>
+{flashcard.prompt} - {flashcard.answer} <a href="/card/{id}/edit" class="font-bold text-blue-400">Edit</a><br/>

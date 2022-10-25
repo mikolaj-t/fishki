@@ -3,6 +3,7 @@ import Form from "../../../../../components/Form.svelte";
 import {page} from "$app/stores";
 import {Button, Input, Label, Textarea} from "flowbite-svelte";
 import {apiURL} from "../../../../../stuff.js";
+import CardEditor from "../../../../../components/CardEditor.svelte";
 
 export let num = 1;
 
@@ -20,7 +21,7 @@ async function FetchRequest(prompt, answer){
     window.location.href = "/deck/" + data.id
 }
 
-function onSubmit(e) {
+async function onSubmit(e) {
     const formData = new FormData(e.target);
     let i = 0;
     let prompt;
@@ -38,18 +39,9 @@ function onSubmit(e) {
 </script>
 
 <Form>
-    <form action=""c on:submit|preventDefault={onSubmit}>
+    <form action="" on:submit|preventDefault={onSubmit}>
     {#each Array(num) as _, i}
-        <div class="grid gap-6 mb-6 md:grid-cols-2">
-            <div>
-            <Label for="prompt">🐟 Prompt</Label>
-            <Textarea id="prompt" name="prompt" placeholder="Coolest animal on earth" required/>
-            </div>
-            <div>
-            <Label for="answer">🗝️ Answer</Label>
-            <Textarea id="answer" name="answer" placeholder="turtle" n required/>
-            </div>
-        </div>
+        <CardEditor/>
     {/each}
         <Button class="addNext" on:click="{() => ++num}" gradient color="green">Add next</Button>
         <Button class="removeNext" on:click="{() => num > 1 ? --num : num = num}" gradient color="red">Remove next</Button>
