@@ -8,6 +8,8 @@ import (
 	"os"
 )
 
+var DOMAIN string = os.Getenv("DOMAIN")
+
 type userHandler struct {
 	service core.UserService
 }
@@ -42,9 +44,9 @@ func (u userHandler) Login(ctx *gin.Context) {
 	}
 	ctx.SetSameSite(http.SameSiteNoneMode)
 	ctx.SetCookie(sessionCookie, string(user.Session), 315360000,
-		"/", "localhost", true, true)
+		"/", DOMAIN, true, true)
 	ctx.SetCookie(usernameCookie, user.Username, 315360000,
-		"/", "localhost", true, true)
+		"/", DOMAIN, true, true)
 	ctx.Status(http.StatusOK)
 }
 
