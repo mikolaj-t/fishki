@@ -42,11 +42,11 @@ func (u userHandler) Login(ctx *gin.Context) {
 		ctx.Status(http.StatusUnauthorized)
 		return
 	}
-	ctx.SetSameSite(http.SameSiteNoneMode)
+	ctx.SetSameSite(http.SameSiteStrictMode)
 	ctx.SetCookie(sessionCookie, string(user.Session), 315360000,
-		"/", DOMAIN, true, true)
+		"/", DOMAIN, false, true)
 	ctx.SetCookie(usernameCookie, user.Username, 315360000,
-		"/", DOMAIN, true, true)
+		"/", DOMAIN, false, true)
 	ctx.Status(http.StatusOK)
 }
 
