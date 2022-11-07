@@ -4,6 +4,7 @@
     import {Button, Input, Label, Textarea} from "flowbite-svelte";
     import {apiURL} from "../../../../../stuff.js";
     import CardEditor from "../../../../../components/CardEditor.svelte";
+    import {beforeNavigate} from "$app/navigation";
 
     export let num = 1;
 
@@ -45,6 +46,10 @@
         // more compatibility
         return '...';
     }
+
+    // I have no idea why, but it actually turns sveltekit's navigation change to a page unload,
+    // so it calls beforeUnload() and hence the confirmation dialog shows up, that's nice
+    beforeNavigate(() => { throw null; })
 </script>
 
 
