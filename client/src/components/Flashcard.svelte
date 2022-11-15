@@ -105,9 +105,15 @@
     }
 
     .text {
-        padding: 50px;
+        padding: 0 50px;
+        height: fit-content;
+        max-height: 60vh;
+        margin-top: 20vh;
+        margin-bottom: 24vh;
+        width: 100%;
         font-size: 3.5vh;
         text-align: center;
+        overflow: scroll;
     }
 
     .front {
