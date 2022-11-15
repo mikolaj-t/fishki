@@ -45,9 +45,7 @@
             review = ddd;
         }
 
-        console.log(review);
-        window.location = "http://127.0.0.1:5173/review/" + review.id;
-
+        window.location.href = "/review/" + review.id;
     }
 </script>
 
