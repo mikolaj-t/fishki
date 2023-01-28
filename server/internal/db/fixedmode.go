@@ -25,6 +25,6 @@ func (f fixedModeRepo) Get(reviewId string) (*core.FixedMode, error) {
 
 func (f fixedModeRepo) Update(reviewID string, mode *core.FixedMode) error {
 	review := core.Review{ModeID: core.Fixed, Mode: mode}
-	_, err := f.coll.ReplaceOne(context.TODO(), bson.M{"_id": reviewID}, review)
+	_, err := f.coll.UpdateOne(context.TODO(), bson.M{"_id": reviewID}, bson.M{"$set": review})
 	return err
 }

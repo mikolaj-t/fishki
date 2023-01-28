@@ -1,6 +1,8 @@
 package app
 
-import "fishki/pkg/core"
+import (
+	"fishki/pkg/core"
+)
 
 type fixedModeService struct {
 	repo        core.FixedModeRepository
@@ -46,13 +48,12 @@ func (f fixedModeService) HandleAnswer(answer core.Answer) error {
 		intervalsSize := len(mode.Intervals)
 
 		// card has finished progression
-		if level > uint8(intervalsSize)+1 {
+		if level > uint8(intervalsSize) {
 			return nil
 		}
 
 		date := core.Today() + core.Date(mode.Intervals[level-1])
 		f.setCardDate(mode, date, answer.CardID)
-
 	} else {
 		// reset the card's progress if the answer is incorrect
 		mode.Levels[answer.CardID] = 0

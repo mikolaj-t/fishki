@@ -21,7 +21,7 @@ func (r baseRepository[T]) Get(result *T, id string) error {
 }
 
 func (r baseRepository[T]) Update(t T, id string) error {
-	_, err := r.coll.ReplaceOne(context.TODO(), bson.M{"_id": id}, t)
+	_, err := r.coll.UpdateOne(context.TODO(), bson.M{"_id": id}, bson.M{"$set": t})
 	return err
 }
 

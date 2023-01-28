@@ -23,6 +23,10 @@ func (f fixedModeHandler) CreateMode(ctx *gin.Context) (core.ReviewMode, error) 
 	var intervals []uint16
 
 	for _, interval := range intervalsString {
+		if len(interval) == 0 {
+			continue
+		}
+
 		i, err := strconv.Atoi(interval)
 
 		if err != nil {
