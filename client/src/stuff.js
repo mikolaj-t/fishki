@@ -1,7 +1,8 @@
 import {currentCardID, currentReviewID} from "./stores.js";
-import { PUBLIC_API_URL } from '$env/static/public';
+//import { PUBLIC_API_URL } from '$env/static/public';
 
-export const apiURL = PUBLIC_API_URL;
+//export const apiURL = PUBLIC_API_URL;
+export const apiURL = "http://localhost:8080"
 
 let reviewID;
 let cardID;
