@@ -14,12 +14,16 @@ jobs:
     name: lint
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      working-directory: client
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.4
+        with:
+          working-directory: ${{env.working-directory}}
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: pnpm
-          working-directory: client
+          working-directory: ${{env.working-directory}}
       - run: 'pnpm i && pnpm check && pnpm lint'
